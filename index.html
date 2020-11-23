@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function computerPlay(){
+            let array=["rock","paper","scissors"];
+            return array[Math.floor(Math.random()*array.length)];
+        }
+        let computerScore=0;
+        let playerScore=0;
+        function playRound(playerSelection,computerSelection){
+            if(playerSelection.toUpperCase()==computerSelection.toUpperCase())
+            return( `Tie. Your Score: ${playerScore} Computer Score: ${computerScore}`);
+            else if(playerSelection.toUpperCase()=="ROCK"){
+                if(computerSelection.toUpperCase()=='PAPER'){
+                computerScore++;
+                return(`You lose! paper beats rock. Your Score: ${playerScore} Computer Score: ${computerScore}`);
+                }
+                else{
+                playerScore++;
+                    return(`You win! rock beats scissor. Your Score: ${playerScore} Computer Score: ${computerScore}`);}
+            }
+            else if(playerSelection.toUpperCase()=="PAPER"){
+                if(computerSelection.toUpperCase()=='ROCK'){
+                    computerScore++;
+                return(`You lose! paper beats rock. Your Score: ${playerScore} Computer Score: ${computerScore}`);}
+                else{
+                    playerScore++;
+                return(`You win! scissor beats paper. Your Score: ${playerScore} Computer Score: ${computerScore}`);}
+            }
+            else{
+                if(computerSelection.toUpperCase()=='ROCK'){
+                    computerScore++;
+                return(`You lose! rock beats scissor. Your Score: ${playerScore} Computer Score: ${computerScore}`);}
+                else{
+                    playerScore++;
+                return(`You win! scissor beats paper. Your Score: ${playerScore} Computer Score: ${computerScore}`);}
+        }
+        }
+        function game(){
+            for(let i=0;i<5;i++){
+                let playerSelection=prompt('Enter(Rock,Paper,Scissor)');
+                let computerSelection=computerPlay();
+                console.log(`Computer selection: ${computerSelection}`);
+                console.log(playRound(playerSelection,computerSelection));
+             }
+        }
+        game();
+        if(playerScore>computerScore)
+                 console.log('You won');
+             else if(playerScore<computerScore)
+             console.log('You lost');
+             else
+             console.log('Tied');
+             
+    </script>
+</html>
